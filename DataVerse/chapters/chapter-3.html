@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Cleaning - DataVerse</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="../index.html" class="nav-logo">DataVerse</a>
+            <ul class="nav-links">
+                <li><a href="../index.html#chapters">Chapters</a></li>
+                <li><a href="../index.html">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Lesson Content -->
+    <article class="lesson-container">
+        <!-- Header -->
+        <header class="lesson-header">
+            <span class="lesson-badge">Chapter 3 • Lesson 1</span>
+            <h1 class="lesson-title">The Data Cleaning Pipeline</h1>
+            <div class="lesson-meta">
+                <span>⏱️ 15 min read</span>
+                <span>📊 Intermediate</span>
+                <span>🎯 Data Preparation</span>
+            </div>
+        </header>
+
+        <!-- Definition Section -->
+        <section class="lesson-section">
+            <h2 class="lesson-section-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                </svg>
+                What is Data Cleaning?
+            </h2>
+            <p><strong>Data Cleaning</strong> is the process of detecting and correcting (or removing) corrupt or inaccurate records from a dataset. It involves identifying incomplete, incorrect, inaccurate, or irrelevant parts of the data and then replacing, modifying, or deleting this dirty data.</p>
+            
+            <div style="background: white; padding: 1.5rem; border-radius: var(--radius); margin-top: 1rem; border-left: 4px solid var(--primary);">
+                <p style="margin: 0;"><strong>In Simple Terms:</strong> Data cleaning is like preparing ingredients before cooking. You wash vegetables, remove spoiled parts, and organize everything before you start cooking. Similarly, you clean data before analysis to ensure accurate results.</p>
+            </div>
+        </section>
+
+        <!-- Why It's Important -->
+        <section class="lesson-section">
+            <h2 class="lesson-section-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                </svg>
+                Why Data Cleaning Matters
+            </h2>
+            
+            <div style="background: linear-gradient(135deg, #fef2f2 0%, #fff1f2 100%); padding: 2rem; border-radius: var(--radius); margin: 1.5rem 0;">
+                <h4 style="color: var(--error); margin-bottom: 1rem;">⚠️ The Cost of Dirty Data</h4>
+                <ul style="margin: 0; padding-left: 1.5rem; line-height: 2;">
+                    <li><strong>IBM estimates</strong> that poor data quality costs the US economy $3.1 trillion annually</li>
+                    <li><strong>84% of CEOs</strong> are concerned about the quality of their data</li>
+                    <li><strong>Data scientists spend 80%</strong> of their time cleaning data, only 20% analyzing it</li>
+                    <li><strong>Gartner says</strong> organizations believe bad data causes an average loss of $15 million per year</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Interactive Animation -->
+        <section class="lesson-section">
+            <h2 class="lesson-section-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                </svg>
+                The Data Cleaning Pipeline
+            </h2>
+            <p>Watch how raw data transforms into a clean dataset through each stage of the cleaning process:</p>
+            
+            <div class="animation-container">
+                <div id="data-cleaning-animation" class="animation-canvas"></div>
+            </div>
+
+            <p style="text-align: center; margin-top: 1rem; font-style: italic; color: var(--text-light);">
+                👆 The animation above shows each step lighting up as data progresses through the pipeline
+            </p>
+        </section>
+
+        <!-- Pipeline Steps Detail -->
+        <section class="lesson-section">
+            <h2 class="lesson-section-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="8" y1="6" x2="21" y2="6"/>
+                    <line x1="8" y1="12" x2="21" y2="12"/>
+                    <line x1="8" y1="18" x2="21" y2="18"/>
+                    <line x1="3" y1="6" x2="3.01" y2="6"/>
+                    <line x1="3" y1="12" x2="3.01" y2="12"/>
+                    <line x1="3" y1="18" x2="3.01" y2="18"/>
+                </svg>
+                Each Step Explained
+            </h2>
+
+            <!-- Step 1: Raw Data -->
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); margin-bottom: 1.5rem; border-left: 4px solid var(--error);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">📊</span>
+                    <div>
+                        <h3 style="margin: 0; color: var(--error);">Step 1: Raw Data</h3>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-light);">The starting point - unprocessed, potentially messy data</p>
+                    </div>
+                </div>
+                <p><strong>What it is:</strong> Raw data is data that has been collected but not yet processed or cleaned. It often contains errors, inconsistencies, and missing values.</p>
+                
+                <div class="code-block" style="margin-top: 1rem;">
+                    <span class="code-language">Example Dataset</span>
+                    <pre><code>Name,Age,Salary,City
+John Doe,25,50000,New York
+Jane Smith,,60000,Los Angeles
+Bob Johnson,thirty,45000,Chicago
+Alice Brown,35,,Houston
+Charlie Wilson,28,55000,New York
+Jane Smith,32,60000,Los Angeles</code></pre>
+                </div>
+                
+                <p style="margin-top: 1rem;"><strong>Problems visible:</strong> Missing age (Jane), invalid age format (Bob), missing salary (Alice), duplicate entry (Jane Smith appears twice)</p>
+            </div>
+
+            <!-- Step 2: Missing Values -->
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); margin-bottom: 1.5rem; border-left: 4px solid var(--warning);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">❓</span>
+                    <div>
+                        <h3 style="margin: 0; color: var(--warning);">Step 2: Handle Missing Values</h3>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-light);">Identify and address gaps in your data</p>
+                    </div>
+                </div>
+                <p><strong>Common strategies:</strong></p>
+                <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.8;">
+                    <li><strong>Delete rows:</strong> Remove records with missing values (if few missing)</li>
+                    <li><strong>Fill with mean/median:</strong> Replace missing numbers with average value</li>
+                    <li><strong>Fill with mode:</strong> Replace missing categories with most common value</li>
+                    <li><strong>Predict missing values:</strong> Use ML to estimate missing data</li>
+                    <li><strong>Create "Unknown" category:</strong> For categorical data</li>
+                </ul>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <span class="code-language">Python</span>
+                    <pre><code>import pandas as pd
+
+# Fill missing age with median
+df['Age'].fillna(df['Age'].median(), inplace=True)
+
+# Fill missing salary with mean
+df['Salary'].fillna(df['Salary'].mean(), inplace=True)
+
+print(f"Missing values remaining: {df.isnull().sum().sum()}")</code></pre>
+                </div>
+            </div>
+
+            <!-- Step 3: Duplicates -->
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); margin-bottom: 1.5rem; border-left: 4px solid var(--warning);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">🔄</span>
+                    <div>
+                        <h3 style="margin: 0; color: var(--warning);">Step 3: Remove Duplicates</h3>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-light);">Eliminate redundant records</p>
+                    </div>
+                </div>
+                <p><strong>Why duplicates occur:</strong> Data entry errors, system glitches, merging multiple datasets, or repeated submissions.</p>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <span class="code-language">Python</span>
+                    <pre><code># Check for duplicates
+print(f"Duplicate rows: {df.duplicated().sum()}")
+
+# Remove duplicates
+df.drop_duplicates(inplace=True)
+
+# Or keep first occurrence
+df.drop_duplicates(subset=['Name'], keep='first', inplace=True)</code></pre>
+                </div>
+            </div>
+
+            <!-- Step 4: Outliers -->
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); margin-bottom: 1.5rem; border-left: 4px solid var(--accent);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">⚠️</span>
+                    <div>
+                        <h3 style="margin: 0; color: var(--accent);">Step 4: Detect & Handle Outliers</h3>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-light);">Find and address extreme values</p>
+                    </div>
+                </div>
+                <p><strong>What are outliers?</strong> Data points that differ significantly from other observations. They can be due to variability in measurement or experimental errors.</p>
+                
+                <p><strong>Detection methods:</strong></p>
+                <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.8;">
+                    <li><strong>Z-Score:</strong> Values beyond ±3 standard deviations</li>
+                    <li><strong>IQR Method:</strong> Values below Q1-1.5×IQR or above Q3+1.5×IQR</li>
+                    <li><strong>Visualization:</strong> Box plots, scatter plots</li>
+                </ul>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <span class="code-language">Python</span>
+                    <pre><code>from scipy import stats
+import numpy as np
+
+# Z-Score method
+z_scores = np.abs(stats.zscore(df['Salary']))
+outliers = df[z_scores > 3]
+print(f"Outliers found: {len(outliers)}")
+
+# Remove outliers
+df = df[z_scores <= 3]</code></pre>
+                </div>
+            </div>
+
+            <!-- Step 5: Encoding -->
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">🔧</span>
+                    <div>
+                        <h3 style="margin: 0; color: var(--primary);">Step 5: Encoding Categorical Data</h3>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-light);">Convert text to numbers for analysis</p>
+                    </div>
+                </div>
+                <p><strong>Why encode?</strong> Most statistical and machine learning algorithms require numerical input. Categorical variables must be converted.</p>
+                
+                <p><strong>Common encoding techniques:</strong></p>
+                <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.8;">
+                    <li><strong>Label Encoding:</strong> Assign numbers to categories (NYC=0, LA=1, Chicago=2)</li>
+                    <li><strong>One-Hot Encoding:</strong> Create binary columns for each category</li>
+                </ul>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <span class="code-language">Python</span>
+                    <pre><code># Label Encoding
+from sklearn.preprocessing import LabelEncoder
+le = LabelEncoder()
+df['City_Encoded'] = le.fit_transform(df['City'])
+
+# One-Hot Encoding
+df_encoded = pd.get_dummies(df, columns=['City'])
+print(df_encoded.columns.tolist())</code></pre>
+                </div>
+            </div>
+
+            <!-- Step 6: Scaling -->
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); margin-bottom: 1.5rem; border-left: 4px solid var(--primary);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">📏</span>
+                    <div>
+                        <h3 style="margin: 0; color: var(--primary);">Step 6: Feature Scaling</h3>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-light);">Normalize numerical ranges</p>
+                    </div>
+                </div>
+                <p><strong>Why scale?</strong> Features with larger ranges can dominate algorithms. Scaling ensures all features contribute equally.</p>
+                
+                <p><strong>Common scaling methods:</strong></p>
+                <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.8;">
+                    <li><strong>Min-Max Scaling:</strong> Rescale to range [0, 1]</li>
+                    <li><strong>Standardization (Z-score):</strong> Mean=0, Std Dev=1</li>
+                </ul>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <span class="code-language">Python</span>
+                    <pre><code>from sklearn.preprocessing import MinMaxScaler, StandardScaler
+
+# Min-Max Scaling
+scaler = MinMaxScaler()
+df['Salary_Scaled'] = scaler.fit_transform(df[['Salary']])
+
+# Standardization
+standardizer = StandardScaler()
+df['Salary_Standard'] = standardizer.fit_transform(df[['Salary']])</code></pre>
+                </div>
+            </div>
+
+            <!-- Step 7: Clean Dataset -->
+            <div style="background: white; padding: 2rem; border-radius: var(--radius); margin-bottom: 1.5rem; border-left: 4px solid var(--success);">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <span style="font-size: 2rem;">✨</span>
+                    <div>
+                        <h3 style="margin: 0; color: var(--success);">Step 7: Clean Dataset Ready!</h3>
+                        <p style="margin: 0; font-size: 0.875rem; color: var(--text-light);">Analysis-ready data</p>
+                    </div>
+                </div>
+                <p><strong>Your data is now:</strong></p>
+                <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.8;">
+                    <li>✓ Complete (no missing values)</li>
+                    <li>✓ Unique (no duplicates)</li>
+                    <li>✓ Consistent (proper formats)</li>
+                    <li>✓ Encoded (categorical → numerical)</li>
+                    <li>✓ Scaled (normalized ranges)</li>
+                </ul>
+
+                <div class="code-block" style="margin-top: 1rem;">
+                    <span class="code-language">Final Dataset</span>
+                    <pre><code>Name,Age,Salary,City,City_Encoded,Salary_Scaled
+John Doe,25,50000,New York,2,0.33
+Jane Smith,30,60000,Los Angeles,1,0.67
+Bob Johnson,30,45000,Chicago,0,0.17
+Alice Brown,35,52500,Houston,3,0.50
+Charlie Wilson,28,55000,New York,2,0.58</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Real-World Example -->
+        <section class="lesson-section">
+            <h2 class="lesson-section-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                </svg>
+                Real-World Example: E-commerce Customer Data
+            </h2>
+            
+            <div style="background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: white; padding: 2rem; border-radius: var(--radius);">
+                <h4 style="color: #10b981; margin-bottom: 1rem;">🛒 Online Retail Case Study</h4>
+                <p>An e-commerce company had customer purchase data with these issues:</p>
+                <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 1.8;">
+                    <li>15% missing email addresses</li>
+                    <li>Duplicate orders from system errors</li>
+                    <li>Invalid ages (negative values, ages > 100)</li>
+                    <li>Purchase amounts in different currencies</li>
+                    <li>Date formats: MM/DD/YYYY and DD/MM/YYYY mixed</li>
+                </ul>
+                <p><strong>After cleaning:</strong> Customer segmentation accuracy improved by 40%, marketing campaign ROI increased by 25%.</p>
+            </div>
+        </section>
+
+        <!-- Common Mistakes -->
+        <section class="lesson-section">
+            <h2 class="lesson-section-title">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                </svg>
+                Common Mistakes to Avoid
+            </h2>
+            
+            <div style="display: grid; gap: 1rem;">
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius); display: flex; gap: 1rem; align-items: start;">
+                    <span style="font-size: 1.5rem; flex-shrink: 0;">❌</span>
+                    <div>
+                        <strong>Deleting Too Much Data</strong>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.9375rem;">Don't delete all rows with missing values if you'll lose significant information. Try imputation first.</p>
+                    </div>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius); display: flex; gap: 1rem; align-items: start;">
+                    <span style="font-size: 1.5rem; flex-shrink: 0;">❌</span>
+                    <div>
+                        <strong>Removing All Outliers</strong>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.9375rem;">Some outliers are valid data points (e.g., high-value customers). Investigate before removing.</p>
+                    </div>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius); display: flex; gap: 1rem; align-items: start;">
+                    <span style="font-size: 1.5rem; flex-shrink: 0;">❌</span>
+                    <div>
+                        <strong>Data Leakage</strong>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.9375rem;">Don't use test data statistics (like mean) to clean training data. This causes overfitting.</p>
+                    </div>
+                </div>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius); display: flex; gap: 1rem; align-items: start;">
+                    <span style="font-size: 1.5rem; flex-shrink: 0;">❌</span>
+                    <div>
+                        <strong>No Documentation</strong>
+                        <p style="margin: 0.5rem 0 0; font-size: 0.9375rem;">Always document what cleaning steps you took. Others (and future you) need to understand your process.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Summary -->
+        <section class="lesson-section" style="background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%); color: white;">
+            <h2 class="lesson-section-title" style="color: white;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                Key Takeaways
+            </h2>
+            <ul style="list-style: none; padding: 0; line-height: 2;">
+                <li>✓ Data cleaning transforms raw, messy data into analysis-ready datasets</li>
+                <li>✓ The pipeline: Raw Data → Missing Values → Duplicates → Outliers → Encoding → Scaling → Clean</li>
+                <li>✓ Poor data quality costs businesses billions annually</li>
+                <li>✓ Always document your cleaning decisions</li>
+                <li>✓ Clean data is the foundation of accurate analysis</li>
+            </ul>
+        </section>
+
+        <!-- Navigation Buttons -->
+        <nav class="lesson-nav">
+            <a href="chapter-2.html" class="nav-btn prev">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Previous Chapter
+            </a>
+            <a href="chapter-4.html" class="nav-btn next primary">
+                Next Chapter: Visualization
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </nav>
+    </article>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 DataVerse. Learn Data Analytics Interactively.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../js/animations/animations.js"></script>
+    <script>
+        // Initialize the Data Cleaning Pipeline Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('data-cleaning-animation');
+            if (!canvas) return;
+
+            const svg = d3.select(canvas)
+                .append('svg')
+                .attr('width', canvas.clientWidth)
+                .attr('height', canvas.clientHeight)
+                .attr('viewBox', `0 0 ${canvas.clientWidth} ${canvas.clientHeight}`);
+
+            const stages = [
+                { name: 'Raw Data', icon: '📊', color: '#ef4444' },
+                { name: 'Missing\nValues', icon: '❓', color: '#f59e0b' },
+                { name: 'Duplicates', icon: '🔄', color: '#f59e0b' },
+                { name: 'Outliers', icon: '⚠️', color: '#06b6d4' },
+                { name: 'Encoding', icon: '🔧', color: '#2563eb' },
+                { name: 'Scaling', icon: '📏', color: '#2563eb' },
+                { name: 'Clean\nDataset', icon: '✨', color: '#10b981' }
+            ];
+
+            const stageWidth = canvas.clientWidth / stages.length;
+            const centerY = canvas.clientHeight / 2;
+
+            // Draw connecting arrows
+            stages.slice(0, -1).forEach((_, i) => {
+                const x1 = (i + 0.6) * stageWidth;
+                const x2 = (i + 0.9) * stageWidth;
+                
+                svg.append('line')
+                    .attr('class', `connector connector-${i}`)
+                    .attr('x1', x1)
+                    .attr('y1', centerY)
+                    .attr('x2', x2)
+                    .attr('y2', centerY)
+                    .attr('stroke', '#e2e8f0')
+                    .attr('stroke-width', 3)
+                    .attr('stroke-dasharray', '10,5');
+
+                // Arrow head
+                svg.append('polygon')
+                    .attr('class', `arrow arrow-${i}`)
+                    .attr('points', `${x2},${centerY-5} ${x2+10},${centerY} ${x2},${centerY+5}`)
+                    .attr('fill', '#e2e8f0')
+                    .attr('opacity', 0);
+            });
+
+            // Draw stages
+            stages.forEach((stage, index) => {
+                const group = svg.append('g')
+                    .attr('class', `stage-group stage-${index}`)
+                    .attr('transform', `translate(${(index + 0.5) * stageWidth}, ${centerY})`);
+
+                // Background circle
+                group.append('circle')
+                    .attr('class', `stage-bg stage-bg-${index}`)
+                    .attr('r', 45)
+                    .attr('fill', stage.color)
+                    .attr('opacity', 0.15);
+
+                // Icon
+                group.append('text')
+                    .attr('class', `stage-icon stage-icon-${index}`)
+                    .attr('text-anchor', 'middle')
+                    .attr('dy', 5)
+                    .attr('font-size', '28px')
+                    .text(stage.icon);
+
+                // Label (with line break support)
+                const lines = stage.name.split('\n');
+                lines.forEach((line, lineIndex) => {
+                    group.append('text')
+                        .attr('class', `stage-label stage-label-${index}`)
+                        .attr('text-anchor', 'middle')
+                        .attr('dy', 75 + lineIndex * 15)
+                        .attr('font-size', '11px')
+                        .attr('font-weight', '600')
+                        .attr('fill', '#64748b')
+                        .text(line);
+                });
+            });
+
+            // Animate through stages
+            let currentStage = 0;
+            
+            function animateToNextStage() {
+                // Reset previous
+                if (currentStage > 0) {
+                    d3.select(`.stage-bg-${currentStage - 1}`)
+                        .transition()
+                        .duration(500)
+                        .attr('opacity', 0.15)
+                        .attr('r', 45);
+
+                    d3.select(`.connector-${currentStage - 1}`)
+                        .transition()
+                        .duration(500)
+                        .attr('stroke', '#e2e8f0')
+                        .attr('stroke-width', 3);
+
+                    d3.select(`.arrow-${currentStage - 1}`)
+                        .transition()
+                        .duration(500)
+                        .attr('opacity', 0);
+                }
+
+                // Highlight current
+                d3.select(`.stage-bg-${currentStage}`)
+                    .transition()
+                    .duration(500)
+                    .attr('opacity', 1)
+                    .attr('r', 55);
+
+                // Highlight connector to next
+                if (currentStage < stages.length - 1) {
+                    const stageColor = stages[currentStage].color;
+                    
+                    d3.select(`.connector-${currentStage}`)
+                        .transition()
+                        .duration(500)
+                        .attr('stroke', stageColor)
+                        .attr('stroke-width', 5);
+
+                    d3.select(`.arrow-${currentStage}`)
+                        .transition()
+                        .duration(500)
+                        .attr('fill', stageColor)
+                        .attr('opacity', 1);
+                }
+
+                currentStage++;
+                
+                if (currentStage >= stages.length) {
+                    setTimeout(() => {
+                        currentStage = 0;
+                        animateToNextStage();
+                    }, 2000);
+                } else {
+                    setTimeout(animateToNextStage, 2000);
+                }
+            }
+
+            // Start animation with initial delay
+            setTimeout(animateToNextStage, 500);
+
+            // Initial GSAP entrance
+            gsap.from('.stage-group', {
+                opacity: 0,
+                y: 50,
+                duration: 0.6,
+                stagger: 0.1,
+                ease: 'power3.out'
+            });
+        });
+    </script>
+</body>
+</html>

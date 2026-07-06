@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DataVerse - Interactive Data Analytics Learning Platform. Master data analytics through visual, interactive lessons.">
+    <meta name="keywords" content="data analytics, learning, visualization, statistics, SQL, Python, Power BI, tutorial">
+    
+    <title>DataVerse - Learn Data Analytics Interactively</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="index.html" class="nav-logo">DataVerse</a>
+            <ul class="nav-links">
+                <li><a href="#chapters">Chapters</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="chapters/chapter-1.html">Start Learning</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Master Data Analytics Through Visual Learning</h1>
+            <p class="hero-subtitle">An interactive journey through data analytics concepts with beautiful animations, real-world examples, and hands-on practice.</p>
+            <a href="#chapters" class="hero-cta">
+                Start Learning
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2>Why Learn Data Analytics?</h2>
+                <p style="max-width: 700px; margin: 1.5rem auto;">
+                    Data is the new oil, and data analytics is the refinery. In today's world, every decision is driven by data. 
+                    From business strategy to healthcare, from finance to sports – data analytics powers insights that matter.
+                </p>
+            </div>
+
+            <div class="chapters-grid" style="margin-top: 3rem;">
+                <div class="chapter-card">
+                    <div class="chapter-number">High Demand</div>
+                    <h3 class="chapter-title">Growing Career Opportunities</h3>
+                    <p class="chapter-description">Data analyst roles are projected to grow 25% by 2030, with competitive salaries and diverse industry options.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-number">Universal Skill</div>
+                    <h3 class="chapter-title">Applicable Across Industries</h3>
+                    <p class="chapter-description">From tech to healthcare, finance to retail – every industry needs data professionals.</p>
+                </div>
+                <div class="chapter-card">
+                    <div class="chapter-number">Problem Solving</div>
+                    <h3 class="chapter-title">Make Data-Driven Decisions</h3>
+                    <p class="chapter-description">Learn to transform raw data into actionable insights that drive real business value.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="section" style="background: var(--background-alt);">
+        <div class="container">
+            <div class="text-center">
+                <h2>Find Your Learning Path</h2>
+                <p>Search through our comprehensive curriculum</p>
+                
+                <div class="search-container">
+                    <div class="search-box">
+                        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"/>
+                            <path d="M21 21l-4.35-4.35"/>
+                        </svg>
+                        <input type="text" id="search-input" class="search-input" placeholder="Search topics (e.g., 'SQL JOIN', 'statistics', 'visualization')...">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters Section -->
+    <section class="section" id="chapters">
+        <div class="container">
+            <div class="text-center">
+                <h2>Learning Roadmap</h2>
+                <p>A structured path from beginner to job-ready data analyst</p>
+            </div>
+
+            <div class="chapters-grid" id="chapters-grid">
+                <!-- Chapter 1 -->
+                <a href="chapters/chapter-1.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 01</div>
+                    <h3 class="chapter-title">Introduction to Data Analytics</h3>
+                    <p class="chapter-description">Learn the fundamentals of data analytics, its importance, and real-world applications.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">What is Data Analytics?</span>
+                        <span class="lesson-tag">Types of Analytics</span>
+                        <span class="lesson-tag">Data Process</span>
+                        <span class="lesson-tag">Career Paths</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 2 -->
+                <a href="chapters/chapter-2.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 02</div>
+                    <h3 class="chapter-title">Data Collection</h3>
+                    <p class="chapter-description">Master techniques for gathering reliable and relevant data from various sources.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Data Sources</span>
+                        <span class="lesson-tag">Surveys</span>
+                        <span class="lesson-tag">APIs</span>
+                        <span class="lesson-tag">Sampling</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 3 -->
+                <a href="chapters/chapter-3.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 03</div>
+                    <h3 class="chapter-title">Data Cleaning</h3>
+                    <p class="chapter-description">Transform raw data into clean, analysis-ready datasets.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Missing Values</span>
+                        <span class="lesson-tag">Duplicates</span>
+                        <span class="lesson-tag">Outliers</span>
+                        <span class="lesson-tag">Transformation</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 4 -->
+                <a href="chapters/chapter-4.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 04</div>
+                    <h3 class="chapter-title">Data Visualization</h3>
+                    <p class="chapter-description">Create compelling visual stories with your data using best practices.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Principles</span>
+                        <span class="lesson-tag">Chart Types</span>
+                        <span class="lesson-tag">Color Theory</span>
+                        <span class="lesson-tag">Dashboards</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 5 -->
+                <a href="chapters/chapter-5.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 05</div>
+                    <h3 class="chapter-title">Statistics</h3>
+                    <p class="chapter-description">Understand statistical concepts essential for data analysis.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Descriptive Stats</span>
+                        <span class="lesson-tag">Probability</span>
+                        <span class="lesson-tag">Hypothesis Testing</span>
+                        <span class="lesson-tag">Regression</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 6 -->
+                <a href="chapters/chapter-6.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 06</div>
+                    <h3 class="chapter-title">Excel for Analytics</h3>
+                    <p class="chapter-description">Leverage Excel's powerful features for data analysis.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Functions</span>
+                        <span class="lesson-tag">Pivot Tables</span>
+                        <span class="lesson-tag">Validation</span>
+                        <span class="lesson-tag">Advanced Formulas</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 7 -->
+                <a href="chapters/chapter-7.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 07</div>
+                    <h3 class="chapter-title">SQL Fundamentals</h3>
+                    <p class="chapter-description">Query and manipulate databases using SQL.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">SELECT</span>
+                        <span class="lesson-tag">JOINs</span>
+                        <span class="lesson-tag">Aggregations</span>
+                        <span class="lesson-tag">Subqueries</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 8 -->
+                <a href="chapters/chapter-8.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 08</div>
+                    <h3 class="chapter-title">Python for Data</h3>
+                    <p class="chapter-description">Use Python for data manipulation and analysis.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Python Basics</span>
+                        <span class="lesson-tag">Pandas</span>
+                        <span class="lesson-tag">NumPy</span>
+                        <span class="lesson-tag">Visualization</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 9 -->
+                <a href="chapters/chapter-9.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 09</div>
+                    <h3 class="chapter-title">Power BI</h3>
+                    <p class="chapter-description">Build interactive business intelligence dashboards.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Getting Started</span>
+                        <span class="lesson-tag">Data Modeling</span>
+                        <span class="lesson-tag">DAX</span>
+                        <span class="lesson-tag">Report Design</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 10 -->
+                <a href="chapters/chapter-10.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 10</div>
+                    <h3 class="chapter-title">Machine Learning</h3>
+                    <p class="chapter-description">Introduction to ML concepts for data analysts.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">ML Overview</span>
+                        <span class="lesson-tag">Supervised Learning</span>
+                        <span class="lesson-tag">Unsupervised Learning</span>
+                        <span class="lesson-tag">Model Evaluation</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 11 -->
+                <a href="chapters/chapter-11.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 11</div>
+                    <h3 class="chapter-title">Projects</h3>
+                    <p class="chapter-description">Apply your skills to real-world data analytics projects.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Planning</span>
+                        <span class="lesson-tag">Exploration</span>
+                        <span class="lesson-tag">Analysis</span>
+                        <span class="lesson-tag">Presentation</span>
+                    </div>
+                </a>
+
+                <!-- Chapter 12 -->
+                <a href="chapters/chapter-12.html" class="chapter-card" style="text-decoration: none; color: inherit;">
+                    <div class="chapter-number">Chapter 12</div>
+                    <h3 class="chapter-title">Interview Prep</h3>
+                    <p class="chapter-description">Prepare for data analytics job interviews.</p>
+                    <div class="chapter-lessons">
+                        <span class="lesson-tag">Common Questions</span>
+                        <span class="lesson-tag">Technical Tests</span>
+                        <span class="lesson-tag">Portfolio Tips</span>
+                        <span class="lesson-tag">Salary Negotiation</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>DataVerse</h4>
+                    <p style="color: #94a3b8; margin-bottom: 1rem;">
+                        The interactive platform for learning data analytics through visual storytelling and hands-on practice.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#chapters">All Chapters</a></li>
+                        <li><a href="chapters/chapter-1.html">Start Learning</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Topics</h4>
+                    <ul>
+                        <li><a href="chapters/chapter-7.html">SQL</a></li>
+                        <li><a href="chapters/chapter-8.html">Python</a></li>
+                        <li><a href="chapters/chapter-5.html">Statistics</a></li>
+                        <li><a href="chapters/chapter-4.html">Visualization</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Cheat Sheets</a></li>
+                        <li><a href="#">Practice Datasets</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DataVerse. Built for learners worldwide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Register GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+    </script>
+</body>
+</html>
